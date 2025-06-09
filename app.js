@@ -202,3 +202,8 @@ const printCards = () => {
 userName.innerHTML = NAME;
 printCards();
 updateDate();
+
+let input = document.querySelector('.searchInput');
+input.value = '';   // Clears the input
+input.focus();      // Focuses the input
+

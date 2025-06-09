@@ -15,6 +15,20 @@
   box-sizing: inherit;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+}
+
+.searchInput {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 5em 0 0 0;
+}
+
 body {
   color: var(--text-light);
   font-family: "Open Sans", sans-serif;
