@@ -27,6 +27,7 @@ form {
     border: none;
     outline: none;
     margin: 5em 0 0 0;
+    background-color: var(--background-light);
 }
 
 body {
