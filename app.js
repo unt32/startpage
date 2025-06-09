@@ -20,6 +20,12 @@ const CARDS = [
     color: "#2b9fd7",
   },
   {
+    name: "NixOS",
+    icon: "ri-file-search-fill",
+    link: "https://search.nixos.org/packages",
+    color: "#5074be",
+  },
+  {
     name: "Github",
     icon: "ri-github-fill",
     link: "https://github.com/",
