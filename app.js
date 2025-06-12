@@ -12,34 +12,63 @@ const CARDS = [
     icon: "ri-youtube-fill",
     link: "https://www.youtube.com/",
     color: "#FF0000",
+    hotkey: 'q',
   },
   {
     name: "Telegram",
     icon: "ri-telegram-fill",
     link: "https://web.telegram.org/a/",
     color: "#2b9fd7",
+    hotkey: 'w',
+  },
+  {
+    name: "Translate",
+    icon: "ri-translate-2",
+    link: "https://translate.yandex.ru/",
+    color: "#fa4221",
+    hotkey: 'e',
   },
   {
     name: "NixOS",
     icon: "ri-file-search-fill",
     link: "https://search.nixos.org/packages",
     color: "#5074be",
+    hotkey: 'a',
   },
   {
     name: "Github",
     icon: "ri-github-fill",
     link: "https://github.com/",
+    color: "#1c6b2b",
+    hotkey: 's',
   },
   {
     name: "Reddit",
     icon: "ri-reddit-fill",
     link: "https://www.reddit.com/r/unixporn/",
     color: "#FF4500",
+    hotkey: 'd',
+  },
+  {
+    name: "ChatGPT",
+    icon: "ri-openai-fill",
+    link: "https://chatgpt.com/",
+    color: "#78ad9f",
+    hotkey: 'z',
+  },
+  {
+    name: "Gemini",
+    icon: "ri-bard-line",
+    link: "https://gemini.google.com/",
+    color: "#273a91",
+    hotkey: 'x',
   },
   {
     name: "Gmail",
-    icon: "ri-google-fill",
+    icon: "ri-mail-line",
     link: "https://mail.google.com/",
+    color: "#ce3c30",
+    hotkey: 'g',
   },
 ];
 
@@ -97,7 +126,7 @@ const updateDate = () => {
   // Create a Loop
   setTimeout(() => {
     updateDate();
-  }, 1000);
+  }, 10000);
 };
 
 const addCustomColorListener = (htmlNode, card) => {
@@ -158,6 +187,7 @@ const printCards = () => {
     // Style the Card Element
     currentCard.classList.add("card");
     currentCard.href = card.link;
+    currentCard.id = card.name.toLowerCase();
 
     // Style the Icon
     currentCardIcon.classList.add("card__icon");
@@ -201,6 +231,11 @@ const printCards = () => {
   }
 };
 
+/***********/
+/* HOTKEYS */
+/***********/
+
+
 /****************/
 /* STARTER CODE */
 /****************/
@@ -209,7 +244,19 @@ userName.innerHTML = NAME;
 printCards();
 updateDate();
 
-let input = document.querySelector('.searchInput');
-input.value = '';   // Clears the input
-input.focus();      // Focuses the input
+const keyMap = new Map([
+  ["space", "https://www.google.com/"],
+  ["enter", "https://www.google.com/"]
+]);
+
+for (const card of CARDS) {
+	keyMap.set(card.hotkey, card.link);
+}
+
+document.addEventListener('keydown', function(event) {
+	    let key = event.key.toLowerCase(); // Get the key pressed, make it lowercase
+	    if (keyMap.has(key)) {
+		window.location.href = keyMap.get(key); 
+	    }	
+});
 
